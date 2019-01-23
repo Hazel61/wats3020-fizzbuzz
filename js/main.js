@@ -1,43 +1,54 @@
 /* Code for WATS 3020 FizzBuzz Assignment */
 
 let isInteger,
-    maxNumber = 10,
+    maxNumber,
     fbResults,
     fbText;
 
 
 // TODO: Initialize a variable `isInteger` to use as a control value for the
 // `while` loop. Set the initial value to `false`.
-let isInteger = false;
 
+isInteger = false;
 
 // TODO: Create a `while` loop so user will be prompted to enter a number until
 // they enter a good number. This loop should be controlled by a conditional
 // expression that looks at the value of `isSafeInteger`. When `isSafeInteger`
 // becomes `true`, the `while` loop should stop looping.
 
-while (isInteger = false && Number.isSafeInteger(maxNumber)) {
-    maxNumber = prompt ("Please enter a number 1 or greater. ");
-    if (highNumber > 0) {
-        isInteger = true;
+while (isInteger = !isInteger) {
+    let input = window.prompt ("Please enter a number 1 or greater. ");
+    if (input === null) break;
+    if (input.indexOf ('.') < 0) {
+        maxNumber = Number.parseInt(input);
+        isInteger = Number.isSafeInteger(maxNumber) && maxNumber > 0;
     }
 }
 fbResults = [];
-for (i = 1; i <= maxNumber; i++) {
+for (let i = 1; i <= maxNumber; i++) {
+
+   let tempString = "";
    if (i % 3 === 0) {
-       fbResults[i - 1] = "Fizz";
-   } else if (i % 5 === 0){
-       fbResults[i - 1] = "Buzz"
-   } else if (i % 5 === 0 && i % 3 === 0) {
-       fbResults[i - 1] = "FizzBuzz"
-   } else {
-       fbResults[i - 1] = i;
+       tempString = "Fizz";
+   }
+   if (i % 5 === 0){
+       tempString = "Buzz";
+   }
+   if (i % 5 === 0 && i % 3 === 0) {
+       tempString = "FizzBuzz";
+   }
+
+   if (tempString = "") {
+       fbResults.push(i);
+   }   else {
+       fbResults.push(tempString);
    }
 }
+
 fbText = "";
 
-for (i = 0; i <= fbResults.length; i++){
-    fbText = fbText + fbResults[i];
+for (i = 0; i < fbResults.length; i++){
+    fbText = fbText + fbResults[i] + "\n";
 }
 console.log (fbText);
 // TODO: Inside `while` loop prompt the user for the `maxNumber` value.
