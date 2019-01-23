@@ -1,19 +1,45 @@
 /* Code for WATS 3020 FizzBuzz Assignment */
 
 let isInteger,
-    maxNumber,
+    maxNumber = 10,
     fbResults,
     fbText;
 
 
 // TODO: Initialize a variable `isInteger` to use as a control value for the
 // `while` loop. Set the initial value to `false`.
+let isInteger = false;
+
 
 // TODO: Create a `while` loop so user will be prompted to enter a number until
 // they enter a good number. This loop should be controlled by a conditional
 // expression that looks at the value of `isSafeInteger`. When `isSafeInteger`
 // becomes `true`, the `while` loop should stop looping.
 
+while (isInteger = false && Number.isSafeInteger(maxNumber)) {
+    maxNumber = prompt ("Please enter a number 1 or greater. ");
+    if (highNumber > 0) {
+        isInteger = true;
+    }
+}
+fbResults = [];
+for (i = 1; i <= maxNumber; i++) {
+   if (i % 3 === 0) {
+       fbResults[i - 1] = "Fizz";
+   } else if (i % 5 === 0){
+       fbResults[i - 1] = "Buzz"
+   } else if (i % 5 === 0 && i % 3 === 0) {
+       fbResults[i - 1] = "FizzBuzz"
+   } else {
+       fbResults[i - 1] = i;
+   }
+}
+fbText = "";
+
+for (i = 0; i <= fbResults.length; i++){
+    fbText = fbText + fbResults[i];
+}
+console.log (fbText);
 // TODO: Inside `while` loop prompt the user for the `maxNumber` value.
 
 // TODO: Inside the `while` loop, use a conditional to verify if the `maxNumber`
