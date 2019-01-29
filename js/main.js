@@ -9,7 +9,7 @@ let isInteger,
 
 isInteger = false;
 // take input
-while (isInteger = !isInteger) {
+while (!isInteger) {
     let input = window.prompt ("Please enter a number 1 or greater. ");
     if (input === null) break;
     if (input.indexOf ('.') < 0) {
@@ -23,7 +23,7 @@ for (let i = 1; i <= maxNumber; i++) {
 
    let tempString = "";
    if (i % 3 === 0) {
-       tempString += "Fizz";4
+       tempString += "Fizz";
    }
    if (i % 5 === 0){
        tempString += "Buzz";
